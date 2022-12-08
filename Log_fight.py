@@ -178,9 +178,9 @@ while Run:
                             input_text = ''
 
             elif event.key == pygame.K_BACKSPACE:
-                input_text = input_text[-1]
+                input_text = input_text[:-1]
             else:
-                if len(input_text) <= 10:
+                if len(input_text) < 10:
                     input_text += event.unicode
 
 
@@ -207,7 +207,7 @@ while Run:
 
     def width_Money(num, letter_width=20,window_width=1200, icon_width=20):
         len_Num = len(num)
-        money_pos = window_width - icon_width - len_Num - letter_width
+        money_pos = window_width - icon_width - len_Num * letter_width
         return money_pos
 
     def print_text(message, x, y, font_color=(0, 0, 0), font_type="font/font.ttf", font_size=30):
@@ -365,8 +365,8 @@ while Run:
         x += 1
         screen.blit(icon_B_bucks_img, (1180, 0))
         screen.blit(icon_Ultra_B_bucks_img, (1180, 32))
-        print_text(str(B_Bucks), B_Bucks_x, 20 ,font_color= WHITE)
-        print_text(str(Ultra_B_Bucks), Ultra_B_Bucks_x, -10, font_color=WHITE)
+        print_text(str(B_Bucks), B_Bucks_x, 30 ,font_color= WHITE)
+        print_text(str(Ultra_B_Bucks), Ultra_B_Bucks_x, -3, font_color=WHITE)
         print_text(Your_status,500, 0, font_color=WHITE)
         Play = button_font.render('Play', True, pygame.Color(WHITE))
         Settings = button_font.render('Settings', True, pygame.Color(WHITE))
